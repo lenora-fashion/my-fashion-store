@@ -1,53 +1,459 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Women's Fashion Collection</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; text-align: center; }
-        header { background-color: #d81b60; color: white; padding: 20px; }
-        .banner { padding: 40px 20px; background-color: #f48fb1; color: white; }
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
-        .product-card { background: white; border: 1px solid #ddd; border-radius: 8px; margin: 15px; width: 250px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .product-card img { width: 100%; border-radius: 5px; }
-        .price { color: #d81b60; font-size: 18px; font-weight: bold; }
-        .btn-order { display: inline-block; background-color: #25D366; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        footer { background: #333; color: white; padding: 10px; margin-top: 30px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LENORA | Elegant Style</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#faf7f2;
+    color:#222;
+}
+
+/* HEADER */
+header{
+    background:#111;
+    color:#f3dfbd;
+    text-align:center;
+    padding:22px 15px;
+}
+
+.logo{
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #c9a66b;
+}
+
+header h1{
+    font-family:Georgia,serif;
+    letter-spacing:8px;
+    margin:8px 0 5px;
+    font-size:30px;
+}
+
+.tagline{
+    font-size:11px;
+    letter-spacing:3px;
+    color:#ddd;
+}
+
+/* BANNER */
+.banner{
+    background:linear-gradient(135deg,#171411,#44382e);
+    color:white;
+    text-align:center;
+    padding:42px 18px;
+}
+
+.banner h2{
+    font-family:Georgia,serif;
+    color:#f0d5aa;
+    margin:0 0 10px;
+    font-size:25px;
+}
+
+.banner p{
+    margin:0;
+}
+
+/* PRODUCT */
+.container{
+    max-width:700px;
+    margin:auto;
+    padding:28px 14px;
+}
+
+.title{
+    text-align:center;
+    font-family:Georgia,serif;
+    font-size:25px;
+    margin:0 0 22px;
+}
+
+.card{
+    background:white;
+    padding:12px;
+    border-radius:14px;
+    box-shadow:0 5px 22px rgba(0,0,0,.10);
+}
+
+/* IMAGE SLIDER */
+.slider{
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+    touch-action:pan-y;
+}
+
+.slide{
+    display:none;
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+}
+
+.slide.active{
+    display:block;
+}
+
+/* BUTTON */
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:rgba(0,0,0,.48);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.prev{
+    left:9px;
+}
+
+.next{
+    right:9px;
+}
+
+/* DOTS */
+.dots{
+    text-align:center;
+    padding:9px 0 2px;
+}
+
+.dot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#ccc;
+    margin:0 3px;
+}
+
+.dot.active{
+    background:#111;
+}
+
+/* INFO */
+.info{
+    text-align:center;
+    padding:2px 5px 7px;
+}
+
+.info h3{
+    font-family:Georgia,serif;
+    font-size:23px;
+    margin:12px 0 6px;
+}
+
+.desc{
+    color:#666;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.price{
+    font-size:24px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+/* WHATSAPP */
+.order{
+    display:block;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    padding:14px;
+    border-radius:8px;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:#ddd;
+    text-align:center;
+    padding:20px 10px;
+    font-size:13px;
+    margin-top:20px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+    header h1{
+        font-size:25px;
+    }
+
+    .banner h2{
+        font-size:21px;
+    }
+
+}
+</style>
 </head>
+
+
 <body>
 
-    <header>
-        <h1>আমাদের লেডিস কালেকশন</h1>
-    </header>
+<!-- HEADER -->
+<header>
 
-    <section class="banner">
-        <h2>সেরা ডিজাইনের ট্রেন্ডিং ড্রেস নিন সাশ্রয়ী মূল্যে!</h2>
-        <p>সরাসরি অর্ডার করতে নিচে দেওয়া হোয়াটসঅ্যাপ বাটনে ক্লিক করুন।</p>
-    </section>
+    <!-- তোমার logo-এর নাম logo.jpg হলে -->
+    <img src="logo.jpg" class="logo" alt="LENORA Logo">
 
-    <div class="container">
-        <!-- প্রোডাক্ট ১ -->
-        <div class="product-card">
-            <img src="https://www.facebook.com/share/p/19QKY1ACji/m/share" alt="ড্রেসের ছবি">
-            <h3>ডিজাইনার থ্রি-পিস</h3>
-            <p class="price">৳ ১০০০</p>
-            <a href="https://wa.me/8801855351481" class="btn-order" target="_blank">WhatsApp-এ অর্ডার করুন</a>
-        </div>
+    <h1>LENORA</h1>
 
-        <!-- প্রোডাক্ট ২ -->
-        <div class="product-card">
-            <img src="https://www.facebook.com/share/p/1EiwhspXUn/" alt="ড্রেসের ছবি">
-            <h3>প্রিমিয়াম সুতি ড্রেস</h3>
-            <p class="price">৳ ১২৫০</p>
-            <a href="https://wa.me/8801855351481" class="btn-order" target="_blank">WhatsApp-এ অর্ডার করুন</a>
-        </div>
+    <div class="tagline">
+        ELEGANT STYLE · TIMELESS YOU.
     </div>
 
-    <footer>
-        <p>আমাদের সাথে থাকার জন্য ধন্যবাদ | ফেসবুক পেজ থেকে অর্ডার করুন</p>
-    </footer>
+</header>
+
+
+<!-- BANNER -->
+<section class="banner">
+
+    <h2>✨ New Collection ✨</h2>
+
+    <p>
+        Elegant fashion, made for her.
+    </p>
+
+</section>
+
+
+<!-- PRODUCTS -->
+<main class="container">
+
+    <h2 class="title">
+        Our Collection
+    </h2>
+
+
+    <!-- PRODUCT 1 -->
+    <div class="card">
+
+        <div class="slider">
+
+            <!-- তোমার ৪টা ছবি -->
+            <img
+                src="1786346885_L_1.jpeg"
+                class="slide active"
+                alt="Lenora Dress"
+            >
+
+            <img
+                src="1786346885_L_3%20(1).jpeg"
+                class="slide"
+                alt="Lenora Dress"
+            >
+
+            <img
+                src="1786346885_L_5%20(1).jpeg"
+                class="slide"
+                alt="Lenora Dress"
+            >
+
+            <img
+                src="1786346885_L_8.jpeg"
+                class="slide"
+                alt="Lenora Dress"
+            >
+
+
+            <!-- PREVIOUS -->
+            <button
+                class="nav prev"
+                onclick="changeSlide(this,-1)"
+            >
+                ❮
+            </button>
+
+
+            <!-- NEXT -->
+            <button
+                class="nav next"
+                onclick="changeSlide(this,1)"
+            >
+                ❯
+            </button>
+
+        </div>
+
+
+        <!-- DOTS -->
+        <div class="dots">
+
+            <span class="dot active"></span>
+
+            <span class="dot"></span>
+
+            <span class="dot"></span>
+
+            <span class="dot"></span>
+
+        </div>
+
+
+        <!-- PRODUCT INFO -->
+        <div class="info">
+
+            <h3>
+                Elegant Printed Three Piece
+            </h3>
+
+
+            <p class="desc">
+                স্টাইলিশ ডিজাইন ও সুন্দর প্রিন্টের
+                আকর্ষণীয় থ্রি-পিস কালেকশন।
+            </p>
+
+
+            <p class="price">
+                ৳ ১২০০
+            </p>
+
+
+            <!-- WHATSAPP ORDER -->
+            <a
+                class="order"
+                href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20এই%20ড্রেসটি%20অর্ডার%20করতে%20চাই।"
+                target="_blank"
+            >
+                💬 WhatsApp-এ অর্ডার করুন
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div>
+        © 2026 LENORA
+    </div>
+
+    <div>
+        Elegant Style · Timeless You.
+    </div>
+
+    <div>
+        WhatsApp: 01855351481
+    </div>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+function changeSlide(button, direction){
+
+    const card = button.closest('.card');
+
+    const slides = card.querySelectorAll('.slide');
+
+    const dots = card.querySelectorAll('.dot');
+
+    let current = 0;
+
+
+    slides.forEach((slide,index)=>{
+
+        if(slide.classList.contains('active')){
+            current = index;
+        }
+
+    });
+
+
+    slides[current].classList.remove('active');
+
+    dots[current].classList.remove('active');
+
+
+    current = current + direction;
+
+
+    if(current >= slides.length){
+        current = 0;
+    }
+
+
+    if(current < 0){
+        current = slides.length - 1;
+    }
+
+
+    slides[current].classList.add('active');
+
+    dots[current].classList.add('active');
+
+}
+
+
+/* MOBILE SWIPE */
+
+let startX = 0;
+
+
+document.querySelector('.slider').addEventListener(
+    'touchstart',
+    function(e){
+
+        startX = e.changedTouches[0].screenX;
+
+    }
+);
+
+
+document.querySelector('.slider').addEventListener(
+    'touchend',
+    function(e){
+
+        let endX = e.changedTouches[0].screenX;
+
+        if(Math.abs(endX-startX) > 40){
+
+            if(endX < startX){
+
+                document.querySelector('.next').click();
+
+            }else{
+
+                document.querySelector('.prev').click();
+
+            }
+
+        }
+
+    }
+);
+
+</script>
+
 
 </body>
 </html>
