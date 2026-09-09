@@ -1,459 +1,451 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenora - Exclusive Three Piece Collection</title>
 
-<title>LENORA | Elegant Style</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-*{
-    box-sizing:border-box;
-}
+    <!-- CSS Code -->
+    <style>
+        /* CSS Reset & Variable */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#faf7f2;
-    color:#222;
-}
+        :root {
+            --primary-color: #0d6efd;
+            --whatsapp-color: #25D366;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+        }
 
-/* HEADER */
-header{
-    background:#111;
-    color:#f3dfbd;
-    text-align:center;
-    padding:22px 15px;
-}
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-.logo{
-    width:105px;
-    height:105px;
-    border-radius:50%;
-    object-fit:cover;
-    border:2px solid #c9a66b;
-}
+        /* Header Style */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-header h1{
-    font-family:Georgia,serif;
-    letter-spacing:8px;
-    margin:8px 0 5px;
-    font-size:30px;
-}
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.tagline{
-    font-size:11px;
-    letter-spacing:3px;
-    color:#ddd;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-/* BANNER */
-.banner{
-    background:linear-gradient(135deg,#171411,#44382e);
-    color:white;
-    text-align:center;
-    padding:42px 18px;
-}
+        /* Banner Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+        }
 
-.banner h2{
-    font-family:Georgia,serif;
-    color:#f0d5aa;
-    margin:0 0 10px;
-    font-size:25px;
-}
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
-.banner p{
-    margin:0;
-}
+        .hero p {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-/* PRODUCT */
-.container{
-    max-width:700px;
-    margin:auto;
-    padding:28px 14px;
-}
+        /* Main Container & Product Grid */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-.title{
-    text-align:center;
-    font-family:Georgia,serif;
-    font-size:25px;
-    margin:0 0 22px;
-}
+        /* Product Card Style */
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
 
-.card{
-    background:white;
-    padding:12px;
-    border-radius:14px;
-    box-shadow:0 5px 22px rgba(0,0,0,.10);
-}
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-/* IMAGE SLIDER */
-.slider{
-    position:relative;
-    overflow:hidden;
-    border-radius:10px;
-    touch-action:pan-y;
-}
+        /* Slider CSS */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background-color: #eee;
+        }
 
-.slide{
-    display:none;
-    width:100%;
-    aspect-ratio:4/5;
-    object-fit:cover;
-}
+        .slide {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
 
-.slide.active{
-    display:block;
-}
+        .slide.active {
+            display: block;
+        }
 
-/* BUTTON */
-.nav{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:40px;
-    height:40px;
-    border:0;
-    border-radius:50%;
-    background:rgba(0,0,0,.48);
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-}
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            user-select: none;
+            transition: 0.3s;
+        }
 
-.prev{
-    left:9px;
-}
+        .nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
 
-.next{
-    right:9px;
-}
+        .prev { left: 10px; }
+        .next { right: 10px; }
 
-/* DOTS */
-.dots{
-    text-align:center;
-    padding:9px 0 2px;
-}
+        .dots {
+            text-align: center;
+            padding: 10px 0;
+            background: #fff;
+        }
 
-.dot{
-    display:inline-block;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#ccc;
-    margin:0 3px;
-}
+        .dot {
+            height: 8px;
+            width: 8px;
+            margin: 0 4px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
 
-.dot.active{
-    background:#111;
-}
+        .dot.active {
+            background-color: var(--primary-color);
+            width: 12px;
+            border-radius: 4px;
+        }
 
-/* INFO */
-.info{
-    text-align:center;
-    padding:2px 5px 7px;
-}
+        /* Info Section */
+        .info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
 
-.info h3{
-    font-family:Georgia,serif;
-    font-size:23px;
-    margin:12px 0 6px;
-}
+        .info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #222;
+        }
 
-.desc{
-    color:#666;
-    font-size:14px;
-    line-height:1.5;
-}
+        .desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
 
-.price{
-    font-size:24px;
-    font-weight:bold;
-    margin:10px 0;
-}
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
 
-/* WHATSAPP */
-.order{
-    display:block;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    text-align:center;
-    padding:14px;
-    border-radius:8px;
-    font-weight:bold;
-    margin-top:12px;
-}
+        .order {
+            display: block;
+            background-color: var(--whatsapp-color);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
 
-/* FOOTER */
-footer{
-    background:#111;
-    color:#ddd;
-    text-align:center;
-    padding:20px 10px;
-    font-size:13px;
-    margin-top:20px;
-}
+        .order:hover {
+            background-color: #1ebc57;
+        }
 
-/* MOBILE */
-@media(max-width:600px){
-
-    header h1{
-        font-size:25px;
-    }
-
-    .banner h2{
-        font-size:21px;
-    }
-
-}
-</style>
+        /* Footer Style */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            font-size: 14px;
+        }
+    </style>
 </head>
-
-
 <body>
 
-<!-- HEADER -->
-<header>
-
-    <!-- তোমার logo-এর নাম logo.jpg হলে -->
-    <img src="logo.jpg" class="logo" alt="LENORA Logo">
-
-    <h1>LENORA</h1>
-
-    <div class="tagline">
-        ELEGANT STYLE · TIMELESS YOU.
-    </div>
-
-</header>
-
-
-<!-- BANNER -->
-<section class="banner">
-
-    <h2>✨ New Collection ✨</h2>
-
-    <p>
-        Elegant fashion, made for her.
-    </p>
-
-</section>
-
-
-<!-- PRODUCTS -->
-<main class="container">
-
-    <h2 class="title">
-        Our Collection
-    </h2>
-
-
-    <!-- PRODUCT 1 -->
-    <div class="card">
-
-        <div class="slider">
-
-            <!-- তোমার ৪টা ছবি -->
-            <img
-                src="1786346885_L_1.jpeg"
-                class="slide active"
-                alt="Lenora Dress"
-            >
-
-            <img
-                src="1786346885_L_3%20(1).jpeg"
-                class="slide"
-                alt="Lenora Dress"
-            >
-
-            <img
-                src="1786346885_L_5%20(1).jpeg"
-                class="slide"
-                alt="Lenora Dress"
-            >
-
-            <img
-                src="1786346885_L_8.jpeg"
-                class="slide"
-                alt="Lenora Dress"
-            >
-
-
-            <!-- PREVIOUS -->
-            <button
-                class="nav prev"
-                onclick="changeSlide(this,-1)"
-            >
-                ❮
-            </button>
-
-
-            <!-- NEXT -->
-            <button
-                class="nav next"
-                onclick="changeSlide(this,1)"
-            >
-                ❯
-            </button>
-
-        </div>
-
-
-        <!-- DOTS -->
-        <div class="dots">
-
-            <span class="dot active"></span>
-
-            <span class="dot"></span>
-
-            <span class="dot"></span>
-
-            <span class="dot"></span>
-
-        </div>
-
-
-        <!-- PRODUCT INFO -->
-        <div class="info">
-
-            <h3>
-                Elegant Printed Three Piece
-            </h3>
-
-
-            <p class="desc">
-                স্টাইলিশ ডিজাইন ও সুন্দর প্রিন্টের
-                আকর্ষণীয় থ্রি-পিস কালেকশন।
-            </p>
-
-
-            <p class="price">
-                ৳ ১২০০
-            </p>
-
-
-            <!-- WHATSAPP ORDER -->
-            <a
-                class="order"
-                href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20এই%20ড্রেসটি%20অর্ডার%20করতে%20চাই।"
-                target="_blank"
-            >
-                💬 WhatsApp-এ অর্ডার করুন
+    <!-- Header Section -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid me-2"></i> Lenora
             </a>
+        </div>
+    </header>
 
+    <!-- Banner Section -->
+    <section class="hero">
+        <h1>আমাদের এক্সক্লুসিভ থ্রি-পিস কালেকশন</h1>
+        <p>সেরা কোয়ালিটি এবং আকর্ষণীয় ডিজাইনের থ্রি-পিস অর্ডার করুন সরাসরি হোয়াটসঅ্যাপে</p>
+    </section>
+
+    <!-- Products Grid Section -->
+    <main class="container">
+
+        <!-- PRODUCT 1 (Pastel Green Floral Set) -->
+        <div class="card">
+            <div class="slider">
+                <img src="1786431765_L_2 (1).jpg" class="slide active" alt="Pastel Green Floral Three Piece">
+                <img src="1786431765_L_1 (1).jpg" class="slide" alt="Pastel Green Floral Three Piece">
+                <img src="1786431765_L_3 (1).jpg" class="slide" alt="Pastel Green Floral Three Piece">
+
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <div class="info">
+                <h3>Pastel Green Floral Three Piece</h3>
+                <p class="desc">আকর্ষণীয় পেস্টেল গ্রিন শেডের প্রিমিয়াম সুতি থ্রি-পিস কালেকশন।</p>
+                <p class="price">৳ ১৩৫০</p>
+
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Pastel%20Green%20Floral%20Three%20Piece%20(Price:%201350)%20অর্ডার%20করতে%20চাই।" target="_blank">
+                    💬 WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
         </div>
 
-    </div>
+        <!-- PRODUCT 2 (Off-White & Maroon Printed Set) -->
+        <div class="card">
+            <div class="slider">
+                <img src="1786346359_L_3 (1).jpg" class="slide active" alt="Off-White Printed Three Piece">
+                <img src="1786346359_L_1.jpg" class="slide" alt="Off-White Printed Three Piece">
+                <img src="1786346359_L_2.jpg" class="slide" alt="Off-White Printed Three Piece">
 
-</main>
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
 
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
 
-<!-- FOOTER -->
-<footer>
+            <div class="info">
+                <h3>Off-White & Maroon Printed Three Piece</h3>
+                <p class="desc">আভিজাত্যপূর্ণ অফ-হোয়াইট বর্ডার ও মেরুন প্রিন্ট ডিজাইনের প্রিমিয়াম থ্রি-পিস কালেকশন।</p>
+                <p class="price">৳ ১৪০০</p>
 
-    <div>
-        © 2026 LENORA
-    </div>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Off-White%20%26%20Maroon%20Printed%20Three%20Piece%20(Price:%201400)%20অর্ডার%20করতে%20চাই।" target="_blank">
+                    💬 WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
 
-    <div>
-        Elegant Style · Timeless You.
-    </div>
+        <!-- PRODUCT 3 (Orange Floral Printed Set) -->
+        <div class="card">
+            <div class="slider">
+                <img src="1786290399_L_3 (1).jpg" class="slide active" alt="Vibrant Orange Floral Three Piece">
+                <img src="1786290399_L_1 (1).jpg" class="slide" alt="Vibrant Orange Floral Three Piece">
 
-    <div>
-        WhatsApp: 01855351481
-    </div>
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
 
-</footer>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
 
+            <div class="info">
+                <h3>Vibrant Orange Floral Three Piece</h3>
+                <p class="desc">ব্রাইট অরেঞ্জ কালারের গর্জিয়াস ফ্লোরাল প্রিন্ট ও নিখুঁত বোতাম ওয়ার্কের স্টাইলিশ থ্রি-পিস।</p>
+                <p class="price">৳ ১৩৫০</p>
 
-<!-- JAVASCRIPT -->
-<script>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Vibrant%20Orange%20Floral%20Three%20Piece%20(Price:%201350)%20অর্ডার%20করতে%20চাই।" target="_blank">
+                    💬 WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
 
-function changeSlide(button, direction){
+        <!-- PRODUCT 4 (Gorgeous Black Embroidery Set) -->
+        <div class="card">
+            <div class="slider">
+                <img src="1786971963_L_1 (1).jpg" class="slide active" alt="Gorgeous Black Embroidery Three Piece">
+                <img src="1786971963_L_2 (1).jpg" class="slide" alt="Gorgeous Black Embroidery Three Piece">
+                <img src="1786971963_L_4 (1).jpg" class="slide" alt="Gorgeous Black Embroidery Three Piece">
 
-    const card = button.closest('.card');
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
 
-    const slides = card.querySelectorAll('.slide');
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
 
-    const dots = card.querySelectorAll('.dot');
+            <div class="info">
+                <h3>Exclusive Party Wear Embroidery Three Piece</h3>
+                <p class="desc">হেভি জড়ি ও সিক্যুয়েন এম্ব্রয়ডারি পাড় সহ প্রিমিয়াম পার্টি ওয়্যার থ্রি-পিস কালেকশন।</p>
+                <p class="price">৳ ১৪০০</p>
 
-    let current = 0;
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Exclusive%20Party%20Wear%20Embroidery%20Three%20Piece%20(Price:%201400)%20অর্ডার%20করতে%20চাই।" target="_blank">
+                    💬 WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
 
+        <!-- PRODUCT 5 (White & Pink Heavy Embroidery Set) -->
+        <div class="card">
+            <div class="slider">
+                <img src="1783779624_L_4 (1).jpg" class="slide active" alt="White & Pink Luxury Embroidery Three Piece">
 
-    slides.forEach((slide,index)=>{
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
 
-        if(slide.classList.contains('active')){
-            current = index;
-        }
+            <div class="dots">
+                <span class="dot active"></span>
+            </div>
 
-    });
+            <div class="info">
+                <h3>Luxury White & Pink Embroidered Three Piece</h3>
+                <p class="desc">অফ-হোয়াইট ফেব্রিক্সে মনকাড়া গোলাপী ফ্লোরাল এম্ব্রয়ডারি ও সিক্যুয়েন ওয়ার্কের লাক্সারি কালেকশন।</p>
+                <p class="price">৳ ২০৫০</p>
 
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Luxury%20White%20%26%20Pink%20Embroidered%20Three%20Piece%20(Price:%202050)%20অর্ডার%20করতে%20চাই।" target="_blank">
+                    💬 WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
 
-    slides[current].classList.remove('active');
+        <!-- PRODUCT 6 (Mustard Yellow Printed Set) -->
+        <div class="card">
+            <div class="slider">
+                <img src="1783945910_L_1.jpg" class="slide active" alt="Mustard Yellow Printed Three Piece">
+                <img src="1783945910_L_2 (1).jpg" class="slide" alt="Mustard Yellow Printed Three Piece">
+                <img src="1783945910_L_3 (1).jpg" class="slide" alt="Mustard Yellow Printed Three Piece">
 
-    dots[current].classList.remove('active');
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
 
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
 
-    current = current + direction;
+            <div class="info">
+                <h3>Mustard Yellow & Navy Blue Three Piece</h3>
+                <p class="desc">ব্রাইট মাস্টার্ড ইয়েলো পেসলে প্রিন্ট ও হাতা-গলায় আকর্ষণীয় নেভি ব্লু লেস ওয়ার্কের থ্রি-পিস।</p>
+                <p class="price">৳ ১৪০০</p>
 
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Mustard%20Yellow%20%26%20Navy%20Blue%20Three%20Piece%20(Price:%201400)%20অর্ডার%20করতে%20চাই।" target="_blank">
+                    💬 WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
 
-    if(current >= slides.length){
-        current = 0;
-    }
+    </main>
 
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2026 Lenora. All Rights Reserved.</p>
+    </footer>
 
-    if(current < 0){
-        current = slides.length - 1;
-    }
+    <!-- JavaScript Code -->
+    <script>
+        function changeSlide(btn, dir) {
+            const card = btn.closest('.card');
+            const slides = card.querySelectorAll('.slide');
+            const dots = card.querySelectorAll('.dot');
+            
+            let index = 0;
+            slides.forEach((slide, i) => {
+                if (slide.classList.contains('active')) {
+                    index = i;
+                    slide.classList.remove('active');
+                }
+            });
 
-
-    slides[current].classList.add('active');
-
-    dots[current].classList.add('active');
-
-}
-
-
-/* MOBILE SWIPE */
-
-let startX = 0;
-
-
-document.querySelector('.slider').addEventListener(
-    'touchstart',
-    function(e){
-
-        startX = e.changedTouches[0].screenX;
-
-    }
-);
-
-
-document.querySelector('.slider').addEventListener(
-    'touchend',
-    function(e){
-
-        let endX = e.changedTouches[0].screenX;
-
-        if(Math.abs(endX-startX) > 40){
-
-            if(endX < startX){
-
-                document.querySelector('.next').click();
-
-            }else{
-
-                document.querySelector('.prev').click();
-
+            if (dots.length > 0 && dots[index]) {
+                dots[index].classList.remove('active');
             }
 
+            index += dir;
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+
+            slides[index].classList.add('active');
+            if (dots.length > 0 && dots[index]) {
+                dots[index].classList.add('active');
+            }
         }
-
-    }
-);
-
-</script>
-
-
+    </script>
 </body>
 </html>
+                
