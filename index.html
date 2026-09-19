@@ -6,86 +6,173 @@ Lenora
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lenora - Exclusive Three Piece Collection</title>
 
-    <!-- Font Awesome Icons -->
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- CSS Code -->
     <style>
-        /* CSS Reset & Variable */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --card-bg: #161616;
+            --accent-gold: #d4af37;
+            --whatsapp-color: #25D366;
+            --text-main: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --border-color: rgba(212, 175, 55, 0.2);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary-color: #0d6efd;
-            --whatsapp-color: #25D366;
-            --text-color: #333;
-            --bg-color: #f8f9fa;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Top Announcement */
+        .top-announcement {
+            background: linear-gradient(90deg, #1a0000, #330000, #1a0000);
+            color: var(--accent-gold);
+            text-align: center;
+            font-size: 11px;
+            padding: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         /* Header Style */
         header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .navbar {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 10px 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
         .logo-img {
-            height: 50px;
-            width: auto;
+            height: 48px;
+            width: 48px;
             border-radius: 50%;
             object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .brand-text h2 {
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 3px;
+        }
+
+        .brand-text span {
+            font-size: 9px;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
         }
 
         /* Banner Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.95)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: #ffffff;
             text-align: center;
-            padding: 60px 20px;
+            padding: 70px 20px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .hero h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+            font-size: 30px;
+            margin-bottom: 12px;
+            color: #fff;
+            letter-spacing: 2px;
         }
 
         .hero p {
-            font-size: 16px;
+            font-size: 14px;
             max-width: 600px;
             margin: 0 auto;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* Section Headings */
+        .section-title {
+            max-width: 1200px;
+            margin: 40px auto 10px auto;
+            padding: 0 20px;
+            font-size: 20px;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
         }
 
         /* Main Container & Product Grid */
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 10px auto 40px auto;
             padding: 0 20px;
-            flex: 1;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -93,17 +180,20 @@ Lenora
 
         /* Product Card Style */
         .card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            border-color: var(--accent-gold);
         }
 
         /* Slider CSS */
@@ -112,7 +202,7 @@ Lenora
             width: 100%;
             height: 380px;
             overflow: hidden;
-            background-color: #eee;
+            background-color: #111;
         }
 
         .slide {
@@ -120,6 +210,7 @@ Lenora
             height: 100%;
             object-fit: cover;
             display: none;
+            transition: opacity 0.5s ease-in-out;
         }
 
         .slide.active {
@@ -130,7 +221,7 @@ Lenora
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
             padding: 10px 14px;
@@ -138,34 +229,36 @@ Lenora
             border-radius: 50%;
             user-select: none;
             transition: 0.3s;
+            font-size: 12px;
         }
 
         .nav:hover {
-            background: rgba(0, 0, 0, 0.8);
+            background: var(--accent-gold);
+            color: #000;
         }
 
-        .prev { left: 10px; }
-        .next { right: 10px; }
+        .prev { left: 12px; }
+        .next { right: 12px; }
 
         .dots {
             text-align: center;
             padding: 10px 0;
-            background: #fff;
+            background: var(--card-bg);
         }
 
         .dot {
-            height: 8px;
-            width: 8px;
+            height: 6px;
+            width: 6px;
             margin: 0 4px;
-            background-color: #bbb;
+            background-color: #444;
             border-radius: 50%;
             display: inline-block;
             transition: background-color 0.3s;
         }
 
         .dot.active {
-            background-color: var(--primary-color);
-            width: 12px;
+            background-color: var(--accent-gold);
+            width: 16px;
             border-radius: 4px;
         }
 
@@ -178,62 +271,115 @@ Lenora
         }
 
         .info h3 {
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 8px;
-            color: #222;
+            color: #fff;
+            letter-spacing: 0.5px;
         }
 
         .desc {
-            font-size: 14px;
-            color: #666;
+            font-size: 13px;
+            color: var(--text-muted);
             margin-bottom: 15px;
-            line-height: 1.4;
+            line-height: 1.5;
             flex-grow: 1;
         }
 
         .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-gold);
             margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
         }
 
         .order {
             display: block;
             background-color: var(--whatsapp-color);
-            color: white;
+            color: #fff;
             text-decoration: none;
             text-align: center;
             padding: 12px;
             border-radius: 8px;
-            font-weight: bold;
-            font-size: 15px;
-            transition: background 0.3s;
+            font-weight: 600;
+            font-size: 14px;
+            transition: opacity 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
         .order:hover {
-            background-color: #1ebc57;
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        /* Badges */
+        .puja-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: linear-gradient(135deg, #b22222, #ff4500);
+            color: #fff;
+            padding: 5px 12px;
+            font-size: 11px;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            font-family: 'Cinzel', serif;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: linear-gradient(135deg, #d4af37, #aa771c);
+            color: #000;
+            padding: 5px 12px;
+            font-size: 11px;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            font-family: 'Cinzel', serif;
         }
 
         /* Footer Style */
         footer {
-            background-color: #222;
-            color: #fff;
+            background-color: #070707;
+            color: var(--text-muted);
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             margin-top: auto;
-            font-size: 14px;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Announcement -->
+    <div class="top-announcement">
+        ✨ Free Delivery On All Pre-Orders | Lenora Luxury Collection ✨
+    </div>
+
     <!-- Header Section -->
     <header>
         <div class="navbar">
-            <a href="#">
+            <a href="#" class="logo-container">
                 <img src="logo.jpg" alt="Lenora Logo" class="logo-img">
+                <div class="brand-text">
+                    <h2>LENORA</h2>
+                    <span>EXCLUSIVE</span>
+                </div>
             </a>
+            <div class="nav-links">
+                <a href="#collection">Collection</a>
+                <a href="#new-arrivals">New Arrivals</a>
+                <a href="#puja">Puja Special</a>
+            </div>
         </div>
     </header>
 
@@ -242,167 +388,438 @@ Lenora
         <h1>আমাদের এক্সক্লুসিভ থ্রি-পিস কালেকশন</h1>
         <p>সেরা কোয়ালিটি এবং আকর্ষণীয় ডিজাইনের থ্রি-পিস অর্ডার করুন সরাসরি হোয়াটসঅ্যাপে</p>
     </section>
-    <!-- Products Grid Section -->
+
+    <!-- Regular Collection Section -->
+    <div class="section-title" id="collection">Regular Collection</div>
     <main class="container">
 
-        <!-- PRODUCT 1 (Pastel Green Floral Set) -->
+        <!-- PRODUCT 1 -->
         <div class="card">
             <div class="slider">
                 <img src="1786431765_L_2 (1).jpeg" class="slide active" alt="Pastel Green Floral Three Piece">
                 <img src="1786431765_L_1 (1).jpeg" class="slide" alt="Pastel Green Floral Three Piece">
                 <img src="1786431765_L_3 (1).jpeg" class="slide" alt="Pastel Green Floral Three Piece">
-
                 <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
                 <button class="nav next" onclick="changeSlide(this,1)">❯</button>
             </div>
-
             <div class="dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
-
             <div class="info">
                 <h3>Pastel Green Floral Three Piece</h3>
                 <p class="desc">আকর্ষণীয় পেস্টেল গ্রিন শেডের প্রিমিয়াম সুতি থ্রি-পিস কালেকশন।</p>
                 <p class="price">৳ ১০০০</p>
-
-                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Pastel%20Green%20Floral%20Three%20Piece%20(Price:%201350)%20অর্ডার%20করতে%20চাই।" target="_blank">
-                    💬 WhatsApp-এ অর্ডার করুন
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Pastel%20Green%20Floral%20Three%20Piece%20(Price:%201000)%20অর্ডার%20করতে%20চাই।" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
                 </a>
             </div>
         </div>
 
-        <!-- PRODUCT 2 (Off-White & Maroon Printed Set) -->
+        <!-- PRODUCT 2 -->
         <div class="card">
             <div class="slider">
-                <img src="1786346359_L_3 (1).jpeg " class="slide active" alt="Off-White Printed Three Piece">
-                <img src="1786346359_L_1.jpeg " class="slide" alt="Off-White Printed Three Piece">
-                <img src="1786346359_L_2.jpeg " class="slide" alt="Off-White Printed Three Piece">
-
+                <img src="1786346359_L_3 (1).jpeg" class="slide active" alt="Off-White Printed Three Piece">
+                <img src="1786346359_L_1.jpeg" class="slide" alt="Off-White Printed Three Piece">
+                <img src="1786346359_L_2.jpeg" class="slide" alt="Off-White Printed Three Piece">
                 <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
                 <button class="nav next" onclick="changeSlide(this,1)">❯</button>
             </div>
-
             <div class="dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
-
             <div class="info">
                 <h3>Off-White & Maroon Printed Three Piece</h3>
                 <p class="desc">আভিজাত্যপূর্ণ অফ-হোয়াইট বর্ডার ও মেরুন প্রিন্ট ডিজাইনের প্রিমিয়াম থ্রি-পিস কালেকশন।</p>
                 <p class="price">৳ ১২৫০</p>
-
-                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Off-White%20%26%20Maroon%20Printed%20Three%20Piece%20(Price:%201400)%20অর্ডার%20করতে%20চাই।" target="_blank">
-                    💬 WhatsApp-এ অর্ডার করুন
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Off-White%20%26%20Maroon%20Printed%20Three%20Piece%20(Price:%201250)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
                 </a>
             </div>
         </div>
 
-        <!-- PRODUCT 3 (Orange Floral Printed Set) -->
+        <!-- PRODUCT 3 -->
         <div class="card">
             <div class="slider">
                 <img src="1786290399_L_3 (1).jpeg" class="slide active" alt="Vibrant Orange Floral Three Piece">
                 <img src="1786290399_L_1 (1).jpeg" class="slide" alt="Vibrant Orange Floral Three Piece">
-
                 <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
                 <button class="nav next" onclick="changeSlide(this,1)">❯</button>
             </div>
-
             <div class="dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
             </div>
-
             <div class="info">
                 <h3>Vibrant Orange Floral Three Piece</h3>
                 <p class="desc">ব্রাইট অরেঞ্জ কালারের গর্জিয়াস ফ্লোরাল প্রিন্ট ও নিখুঁত বোতাম ওয়ার্কের স্টাইলিশ থ্রি-পিস।</p>
                 <p class="price">৳ ৯৫০</p>
-
-                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Vibrant%20Orange%20Floral%20Three%20Piece%20(Price:%201350)%20অর্ডার%20করতে%20চাই।" target="_blank">
-                    💬 WhatsApp-এ অর্ডার করুন
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Vibrant%20Orange%20Floral%20Three%20Piece%20(Price:%20950)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
                 </a>
             </div>
         </div>
 
-        <!-- PRODUCT 4 (Gorgeous Black Embroidery Set) -->
+        <!-- PRODUCT 4 -->
         <div class="card">
             <div class="slider">
                 <img src="1786971963_L_1 (1).jpeg" class="slide active" alt="Gorgeous Black Embroidery Three Piece">
                 <img src="1786971963_L_2 (1).jpeg" class="slide" alt="Gorgeous Black Embroidery Three Piece">
                 <img src="1786971963_L_4 (1).jpeg" class="slide" alt="Gorgeous Black Embroidery Three Piece">
-
                 <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
                 <button class="nav next" onclick="changeSlide(this,1)">❯</button>
             </div>
-
             <div class="dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
-
             <div class="info">
                 <h3>Exclusive Party Wear Embroidery Three Piece</h3>
                 <p class="desc">হেভি জড়ি ও সিক্যুয়েন এম্ব্রয়ডারি পাড় সহ প্রিমিয়াম পার্টি ওয়্যার থ্রি-পিস কালেকশন।</p>
                 <p class="price">৳ ১৩৫০</p>
-
-                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Exclusive%20Party%20Wear%20Embroidery%20Three%20Piece%20(Price:%201400)%20অর্ডার%20করতে%20চাই।" target="_blank">
-                    💬 WhatsApp-এ অর্ডার করুন
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Exclusive%20Party%20Wear%20Embroidery%20Three%20Piece%20(Price:%201350)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
                 </a>
             </div>
         </div>
 
-        <!-- PRODUCT 5 (White & Pink Heavy Embroidery Set) -->
+        <!-- PRODUCT 5 -->
         <div class="card">
             <div class="slider">
                 <img src="1783779624_L_4 (1).jpeg" class="slide active" alt="White & Pink Luxury Embroidery Three Piece">
-
                 <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
                 <button class="nav next" onclick="changeSlide(this,1)">❯</button>
             </div>
-
             <div class="dots">
                 <span class="dot active"></span>
             </div>
-
             <div class="info">
                 <h3>Luxury White & Pink Embroidered Three Piece</h3>
                 <p class="desc">অফ-হোয়াইট ফেব্রিক্সে মনকাড়া গোলাপী ফ্লোরাল এম্ব্রয়ডারি ও সিক্যুয়েন ওয়ার্কের লাক্সারি কালেকশন।</p>
                 <p class="price">৳ ২০৫০</p>
-
-                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Luxury%20White%20%26%20Pink%20Embroidered%20Three%20Piece%20(Price:%202050)%20অর্ডার%20করতে%20চাই।" target="_blank">
-                    💬 WhatsApp-এ অর্ডার করুন
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Luxury%20White%20%26%20Pink%20Embroidered%20Three%20Piece%20(Price:%202050)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
                 </a>
             </div>
         </div>
 
-        <!-- PRODUCT 6 (Mustard Yellow Printed Set) -->
+        <!-- PRODUCT 6 -->
         <div class="card">
             <div class="slider">
                 <img src="1783945910_L_1.jpeg" class="slide active" alt="Mustard Yellow Printed Three Piece">
                 <img src="1783945910_L_2 (1).jpeg" class="slide" alt="Mustard Yellow Printed Three Piece">
                 <img src="1783945910_L_3 (1).jpeg" class="slide" alt="Mustard Yellow Printed Three Piece">
-
                 <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
                 <button class="nav next" onclick="changeSlide(this,1)">❯</button>
             </div>
-
             <div class="dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
-
             <div class="info">
                 <h3>Mustard Yellow & Navy Blue Three Piece</h3>
-                <p class="desc">ব্রাইট মাস্টার্ড ইয়েলো পেসলে প্রিন্ট ও হাতা-গলায় আকর্ষণীয় নেভি ব্লু লেস ওয়ার্কের থ্রি-পিস।</p>
+                <p class="desc">ব্রایت মাস্টার্ড ইয়েলো পেসলে প্রিন্ট ও হাতা-গলায় আকর্ষণীয় নেভি ব্লু লেস ওয়ার্কের থ্রি-পিস।</p>
                 <p class="price">৳ ৯৫০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Mustard%20Yellow%20%26%20Navy%20Blue%20Three%20Piece%20(Price:%20950)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
 
-                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Mustard%20Yellow%20%26%20Navy%20Blue%20Three%20Piece%20(Price:%201400)%20অর্ডার%20করতে%20চাই।" target="_blank">
-                    💬 WhatsApp-এ অর্ডার করুন
+    </main>
+
+    <!-- New Arrivals / Special Additions Section -->
+    <div class="section-title" id="new-arrivals">New Arrivals Collection ✨</div>
+    <main class="container">
+
+        <!-- New Product 1 (950tk Set) -->
+        <div class="card">
+            <div class="new-badge">New Arrival</div>
+            <div class="slider">
+                <img src="1788697477_L_3.jpeg" class="slide active" alt="New Arrival Three Piece">
+                <img src="1788697477_L_2.jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1772040981_L_2.jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1768052226_L_5.jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1768052226_L_4.jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1788697718_L_2 (1).jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1788515921_L_3.jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1788515921_L_2.jpeg" class="slide" alt="New Arrival Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Lenora Signature Printed Edition</h3>
+                <p class="desc">ননস্টপ ট্রেন্ডি ডিজাইন ও সফট ফেব্রিক্সে তৈরি চমৎকার নিউ এরাইভাল থ্রি-পিস।</p>
+                <p class="price">৳ ৯৫০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20New%20Arrival%20Three%20Piece%20(950)%20অর্ডার%20করতে%20চাই।" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- New Product 2 (1000tk Set) -->
+        <div class="card">
+            <div class="new-badge">New Arrival</div>
+            <div class="slider">
+                <img src="1000.jpeg" class="slide active" alt="New Arrival Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+            </div>
+            <div class="info">
+                <h3>Lenora Modern Floral Three Piece</h3>
+                <p class="desc">আকর্ষণীয় ফ্লোরাল প্রিন্ট ও চমৎকার কালারের নিউ কালেকশন থ্রি-পিস সেট।</p>
+                <p class="price">৳ ১০০০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20New%20Arrival%20Three%20Piece%20(1000)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- New Product 3 (1100tk Set) -->
+        <div class="card">
+            <div class="new-badge">New Arrival</div>
+            <div class="slider">
+                <img src="1100_1.jpeg" class="slide active" alt="New Arrival Three Piece">
+                <img src="1100_L1.jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1100_L2.jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1100.png" class="slide" alt="New Arrival Three Piece">
+                <img src="File_1100.png" class="slide" alt="New Arrival Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Lenora Elegant Designer Three Piece</h3>
+                <p class="desc">স্টাইলিশ ও প্রিমিয়াম ফিনিশিংয়ের ট্রেন্ডি ডিজাইনের এক্সক্লুসিভ থ্রি-পিস।</p>
+                <p class="price">৳ ১১০০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20New%20Arrival%20Three%20Piece%20(1100)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- New Product 4 (1150tk Set) -->
+        <div class="card">
+            <div class="new-badge">New Arrival</div>
+            <div class="slider">
+                <img src="11500_L_1.jpeg" class="slide active" alt="New Arrival Three Piece">
+                <img src="1150_L_2.jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1150_L_3 (2).jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1150_L_5 (2).jpeg" class="slide" alt="New Arrival Three Piece">
+                <img src="1150_L_7 (1).jpeg" class="slide" alt="New Arrival Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Lenora Royal Festive Three Piece</h3>
+                <p class="desc">ফেস্টিভ লুক ও প্রিমিয়াম এমব্রয়ডারি ডিটেইলিংয়ের লাক্সারি থ্রি-পিস কালেকশন।</p>
+                <p class="price">৳ ১১৫০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20New%20Arrival%20Three%20Piece%20(1150)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- New Product 5 (1200tk Set) -->
+        <div class="card">
+            <div class="new-badge">New Arrival</div>
+            <div class="slider">
+                <img src="Dress1200.png" class="slide active" alt="New Arrival Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+            </div>
+            <div class="info">
+                <h3>Lenora Premium Party Wear Three Piece</h3>
+                <p class="desc">স্পেশাল অকেশনের জন্য প্রিমিয়াম কোয়ালিটি ও গর্জিয়াস ডিজাইনের থ্রি-পিস।</p>
+                <p class="price">৳ ১২০০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20New%20Arrival%20Three%20Piece%20(1200)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Puja Special Collection Section -->
+    <div class="section-title" id="puja">Puja Special Collection ✨</div>
+    <main class="container">
+
+        <!-- Puja Product 1 (1000tk Set) -->
+        <div class="card">
+            <div class="puja-badge">Puja Special</div>
+            <div class="slider">
+                <img src="1000L_1.jpeg" class="slide active" alt="Puja Special Three Piece">
+                <img src="1000L_2.jpeg" class="slide" alt="Puja Special Three Piece">
+                <img src="1000L_3.jpeg" class="slide" alt="Puja Special Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Sharadiya Festive Designer Three Piece</h3>
+                <p class="desc">শারদীয় উৎসবের জন্য বিশেষভাবে ডিজাইন করা প্রিমিয়াম ও গর্জিয়াস থ্রি-পিস কালেকশন।</p>
+                <p class="price">৳ ১০০০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Puja%20Special%20Three%20Piece%20(1000)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Puja Product 2 (1000tk Set Variant 2) -->
+        <div class="card">
+            <div class="puja-badge">Puja Special</div>
+            <div class="slider">
+                <img src="1000_L_1.jpg" class="slide active" alt="Puja Special Three Piece">
+                <img src="1000_L_2.jpeg" class="slide" alt="Puja Special Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Sharadiya Royal Festive Edition</h3>
+                <p class="desc">উৎসব মুখর দিনে পরার জন্য চমৎকার কালার কম্বিনেশন ও প্রিমিয়াম ফেব্রিক থ্রি-পিস।</p>
+                <p class="price">৳ ১০০০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Puja%20Special%20Three%20Piece%20(1000)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Puja Product 3 (1100tk Set) -->
+        <div class="card">
+            <div class="puja-badge">Puja Special</div>
+            <div class="slider">
+                <img src="1100_L_1.jpg" class="slide active" alt="Puja Special Three Piece">
+                <img src="1100_L_3.jpeg" class="slide" alt="Puja Special Three Piece">
+                <img src="1100_L_4.jpeg" class="slide" alt="Puja Special Three Piece">
+                <img src="1100_L_1.jfif.jpg" class="slide" alt="Puja Special Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Sharadiya Elegant Traditional Three Piece</h3>
+                <p class="desc">আকর্ষণীয় ও এক্সক্লুসিভ কাটিংয়ের ঐতিহ্যবাহী শারদীয় স্পেশাল থ্রি-পিস সেট।</p>
+                <p class="price">৳ ১১০০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Puja%20Special%20Three%20Piece%20(1100)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Puja Product 4 (950tk Set) -->
+        <div class="card">
+            <div class="puja-badge">Puja Special</div>
+            <div class="slider">
+                <img src="950_L_1.jpeg" class="slide active" alt="Puja Special Three Piece">
+                <img src="950_L_2.jpg" class="slide" alt="Puja Special Three Piece">
+                <img src="950_L_3.jpeg" class="slide" alt="Puja Special Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Sharadiya Chic Printed Three Piece</h3>
+                <p class="desc">হালকা ও আরামদায়ক সুতি কাপড়ে তৈরি প্রিমিয়াম ফেস্টিভ লুক থ্রি-পিস কালেকশন।</p>
+                <p class="price">৳ ৯৫০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Puja%20Special%20Three%20Piece%20(950)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Puja Product 5 (1050tk Set) -->
+        <div class="card">
+            <div class="puja-badge">Puja Special</div>
+            <div class="slider">
+                <img src="1050_L_2.jpeg" class="slide active" alt="Puja Special Three Piece">
+                <img src="1050_L_3.jpeg" class="slide" alt="Puja Special Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Sharadiya Graceful Party Wear Three Piece</h3>
+                <p class="desc">পূজার দিনগুলোতে স্টাইলিশ ও গর্জিয়াস লুক ফুটিয়ে তুলতে দারুণ একটি কালেকশন।</p>
+                <p class="price">৳ ১০৫০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Puja%20Special%20Three%20Piece%20(1050)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Puja Product 6 (1300tk Set) -->
+        <div class="card">
+            <div class="puja-badge">Puja Special</div>
+            <div class="slider">
+                <img src="1300_L_1.jpeg" class="slide active" alt="Puja Special Three Piece">
+                <img src="1300_L_5.jpeg" class="slide" alt="Puja Special Three Piece">
+                <button class="nav prev" onclick="changeSlide(this,-1)">❮</button>
+                <button class="nav next" onclick="changeSlide(this,1)">❯</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="info">
+                <h3>Sharadiya Luxury Embroidered Festive Set</h3>
+                <p class="desc">এক্সক্লুসিভ ফেস্টিভ এমব্রয়ডারি ও প্রিমিয়াম কোয়ালিটি ফেব্রিক্সে তৈরি লাক্সারি থ্রি-পিস।</p>
+                <p class="price">৳ ১৩০০</p>
+                <a class="order" href="https://wa.me/8801855351481?text=Assalamu%20Alaikum%2C%20Lenora%20থেকে%20Puja%20Special%20Three%20Piece%20(1300)%20অর্ডার%20করতে%20চাই;" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার করুন
                 </a>
             </div>
         </div>
@@ -411,7 +828,7 @@ Lenora
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2026 Lenora. All Rights Reserved.</p>
+        <p>&copy; 2026 Lenora. All Rights Reserved. Luxury Women's Wear.</p>
     </footer>
 
     <!-- JavaScript Code -->
@@ -444,5 +861,4 @@ Lenora
         }
     </script>
 </body>
-</html>
-                
+                    </html>
